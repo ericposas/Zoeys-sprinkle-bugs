@@ -1,0 +1,4 @@
+#!/bin/bash
+
+browserify js/main.js > js/_main.js
+open "http://127.0.0.1:52459/index.html"
