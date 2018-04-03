@@ -26,6 +26,8 @@ function _init(){
   app.stage.addChild(mf);
   mf.width = 50;
   mf.height = 50;
+  mf.pivot.x = mf.width/2;
+  mf.pivot.y = mf.height/2;
   
   app.ticker.add(function(){
     console.log('Framerate: '+app.ticker.FPS);
@@ -42,9 +44,11 @@ function _init(){
   });
   window.addEventListener('mousedown', function(e){
     mouse.is_down = true;
+    TweenLite.to(mf, 0.5, {width:mf.width*0.5, height:mf.height*0.5});
   });
   window.addEventListener('mouseup', function(e){
     mouse.is_down = false;
+    TweenLite.to(mf, 0.5, {width:50, height:50, ease:Elastic.easeOut});
   });
   function draw(x, y){
     var c = new PIXI.Graphics();
